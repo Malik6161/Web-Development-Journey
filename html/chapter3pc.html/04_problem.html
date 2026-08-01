@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Websites</title>
+    <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+           window.location.href = "04_login.html";
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .card img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🌐 My Top 5 Favorite Websites</h1>
+
+        <div class="cards">
+
+            <a href="https://www.youtube.com" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                <h3>YouTube</h3>
+            </a>
+
+            <a href="https://www.facebook.com" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+                <h3>Facebook</h3>
+            </a>
+
+            <a href="https://www.twitter.com" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png" alt="Twitter">
+                <h3>Twitter / X</h3>
+            </a>
+
+            <a href="https://www.instagram.com" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                <h3>Instagram</h3>
+            </a>
+
+            <a href="https://www.linkedin.com" target="_blank" class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn">
+                <h3>LinkedIn</h3>
+            </a>
+
+        </div>
+
+        <footer>
+            © 2026 My Favorite Websites | Built with HTML & CSS
+        </footer>
+
+    </div>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+       function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "04_login.html";
+}
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zomato Restaurant</title>
+
+  <!-- Linking the external CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome for icons (optional, used for cart/menu icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== Header / Navbar ===== -->
+  <header class="navbar">
+    <div class="logo">Zomato<span>.</span></div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-icons">
+      <i class="fa-solid fa-bars" id="menuToggle"></i>
+    </div>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Delicious Food, <br> Delivered <span>Fast.</span></h1>
+      <p>Order from Zomato Restaurant and enjoy fresh meals made with love, delivered right to your doorstep.</p>
+      <a href="#menu" class="btn">Order Now</a>
+    </div>
+  </section>
+
+  <!-- ===== Menu Section ===== -->
+  <section class="menu" id="menu">
+    <h2 class="section-title">Our Menu</h2>
+    <p class="section-subtitle">Pick your favorite dish from our specially curated menu</p>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <div class="menu-card" data-name="Margherita Pizza" data-price="8">
+        <img src="https://images.unsplash.com/photo-1601924475463-1edbf1f29c5e?w=400" alt="Margherita Pizza">
+        <h3>Margherita Pizza</h3>
+        <p>Classic cheese pizza with fresh basil and tomato sauce.</p>
+        <div class="price-row">
+          <span class="price">$8.00</span>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-name="Cheese Burger" data-price="6">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Cheese Burger">
+        <h3>Cheese Burger</h3>
+        <p>Juicy grilled patty topped with cheddar cheese and fresh veggies.</p>
+        <div class="price-row">
+          <span class="price">$6.00</span>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-name="Pasta Alfredo" data-price="7">
+        <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=400" alt="Pasta Alfredo">
+        <h3>Pasta Alfredo</h3>
+        <p>Creamy white sauce pasta tossed with herbs and parmesan.</p>
+        <div class="price-row">
+          <span class="price">$7.00</span>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-name="Chicken Biryani" data-price="9">
+        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400" alt="Chicken Biryani">
+        <h3>Chicken Biryani</h3>
+        <p>Fragrant basmati rice cooked with spiced chicken and herbs.</p>
+        <div class="price-row">
+          <span class="price">$9.00</span>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-name="Caesar Salad" data-price="5">
+        <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400" alt="Caesar Salad">
+        <h3>Caesar Salad</h3>
+        <p>Crisp lettuce, croutons, and parmesan with classic Caesar dressing.</p>
+        <div class="price-row">
+          <span class="price">$5.00</span>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-name="Chocolate Brownie" data-price="4">
+        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400" alt="Chocolate Brownie">
+        <h3>Chocolate Brownie</h3>
+        <p>Warm fudgy brownie served with a scoop of vanilla ice cream.</p>
+        <div class="price-row">
+          <span class="price">$4.00</span>
+          <button class="btn-small add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Cart Summary (updated by script.js) ===== -->
+  <section class="cart-summary" id="cartSummary">
+    <h3>Your Cart</h3>
+    <ul id="cartItems"><li class="empty">No items added yet.</li></ul>
+    <p class="cart-total">Total: $<span id="cartTotal">0</span></p>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2 class="section-title">About Zomato Restaurant</h2>
+      <p>
+        Zomato Restaurant has been serving fresh, flavorful food since day one.
+        We believe great meals bring people together, so every dish on our menu
+        is prepared with quality ingredients and a lot of care.
+      </p>
+      <p>Open every day from 10 AM to 11 PM.</p>
+    </div>
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" alt="Restaurant interior">
+    </div>
+  </section>
+
+  <!-- ===== Gallery Section ===== -->
+  <section class="gallery" id="gallery">
+    <h2 class="section-title">Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400" alt="Food gallery 1">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Food gallery 2">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400" alt="Food gallery 3">
+      <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400" alt="Food gallery 4">
+    </div>
+  </section>
+
+  <!-- ===== Contact Section ===== -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p id="formStatus"></p>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Zomato Restaurant. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Linking the external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
