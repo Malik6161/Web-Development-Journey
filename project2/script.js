@@ -205,7 +205,6 @@ filterButtons.forEach((button) => {
     });
 
 });
-
 clearBtn.addEventListener("click", () => {
 
     const completed = document.querySelectorAll(".completed");
@@ -217,5 +216,6 @@ clearBtn.addEventListener("click", () => {
     updateStats();
 
 });
+// this function is called to initialize the stats when the page loads
 
 updateStats();
