@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>TaskFlow</h1>
+
+        <div class="task-input">
+            <input type="text" class="input-box" placeholder="Add a new task...">
+            <button class="add-btn">Add Task</button>
+        </div>
+
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search tasks...">
+        </div>
+
+        <div class="stats">
+
+            <div class="card">
+                <h3>Total</h3>
+                <p id="total-tasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <p id="completed-tasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <p id="pending-tasks">0</p>
+            </div>
+
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Active</button>
+            <button class="filter-btn">Completed</button>
+        </div>
+
+        <ul class="task-list">
+
+
+        </ul>
+
+        <div class="empty-state">
+            <p>No tasks added yet.</p>
+        </div>
+
+        <div class="actions">
+            <button class="clear-btn">Clear Completed</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
