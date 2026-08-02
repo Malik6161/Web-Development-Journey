@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="clock">
+
+            <h1>World Digital Clock</h1>
+
+            <div class="timezone-box">
+
+                <label for="timezone">Choose a Time Zone</label>
+
+                <select id="timezone">
+
+                    <option value="Asia/Karachi">🇵🇰 Pakistan - Karachi</option>
+                    <option value="Asia/Dubai">🇦🇪 UAE - Dubai</option>
+                    <option value="Asia/Riyadh">🇸🇦 Saudi Arabia - Riyadh</option>
+                    <option value="Asia/Kolkata">🇮🇳 India - New Delhi</option>
+                    <option value="Asia/Dhaka">🇧🇩 Bangladesh - Dhaka</option>
+                    <option value="Asia/Tokyo">🇯🇵 Japan - Tokyo</option>
+                    <option value="Asia/Shanghai">🇨🇳 China - Beijing</option>
+                    <option value="Asia/Singapore">🇸🇬 Singapore</option>
+                    <option value="Europe/London">🇬🇧 United Kingdom - London</option>
+                    <option value="Europe/Paris">🇫🇷 France - Paris</option>
+                    <option value="Europe/Berlin">🇩🇪 Germany - Berlin</option>
+                    <option value="Europe/Rome">🇮🇹 Italy - Rome</option>
+                    <option value="Europe/Madrid">🇪🇸 Spain - Madrid</option>
+                    <option value="America/New_York">🇺🇸 USA - New York</option>
+                    <option value="America/Chicago">🇺🇸 USA - Chicago</option>
+                    <option value="America/Denver">🇺🇸 USA - Denver</option>
+                    <option value="America/Los_Angeles">🇺🇸 USA - Los Angeles</option>
+                    <option value="America/Toronto">🇨🇦 Canada - Toronto</option>
+                    <option value="Australia/Sydney">🇦🇺 Australia - Sydney</option>
+                    <option value="Pacific/Auckland">🇳🇿 New Zealand - Auckland</option>
+
+                </select>
+
+            </div>
+
+            <div class="selected-location">
+
+                <p id="location-name">
+                    🇵🇰 Pakistan - Karachi
+                </p>
+
+            </div>
+
+            <div class="time">
+
+                <span id="hours">00</span>
+                <span>:</span>
+
+                <span id="minutes">00</span>
+                <span>:</span>
+
+                <span id="seconds">00</span>
+
+                <span id="ampm">AM</span>
+
+            </div>
+
+            <div class="date">
+
+                <p id="day">
+                    Sunday
+                </p>
+
+                <p id="full-date">
+                    August 02, 2026
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
