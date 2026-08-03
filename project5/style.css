@@ -1,0 +1,750 @@
+
+/* ==========================================================
+   Secure Password Generator — style.css
+   Theme: "Vault" — deep ink panel, brass accent, riveted card
+   ========================================================== */
+ 
+/* ===== Part 1 ===== */
+ 
+/* ---------- Global Styles ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+html {
+    color-scheme: dark;
+}
+ 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-deep);
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(232, 184, 92, 0.06), transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(232, 184, 92, 0.05), transparent 45%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+ 
+/* ---------- Variables ---------- */
+:root {
+    /* Core palette */
+    --bg-deep: #0b0f17;
+    --bg-panel: #141b26;
+    --bg-panel-2: #1b2430;
+    --bg-input: #10151f;
+ 
+    --border: #262f3d;
+    --border-soft: #1e2733;
+ 
+    --accent: #e8b85c;
+    --accent-dim: #b6924a;
+    --accent-soft: rgba(232, 184, 92, 0.14);
+    --accent-soft-strong: rgba(232, 184, 92, 0.28);
+ 
+    --text-primary: #edeff3;
+    --text-secondary: #8b93a3;
+    --text-muted: #5a6472;
+ 
+    /* Strength scale */
+    --weak: #e5484d;
+    --fair: #f5a623;
+    --good: #e8d84a;
+    --strong: #4ade80;
+    --very-strong: #34d399;
+ 
+    /* Type */
+    --font-display: 'Poppins', sans-serif;
+    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+ 
+    /* Radii + shadow */
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --shadow-card: 0 30px 60px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.02);
+    --transition: 180ms ease;
+}
+ 
+/* ---------- Layout ---------- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 48px 20px;
+}
+ 
+/* ---------- Password Card ---------- */
+.password-card {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg-deep) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 36px 32px 28px;
+}
+ 
+/* Vault-style corner rivets — the card's signature detail */
+.password-card::before,
+.password-card::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+    box-shadow:
+        0 0 0 3px rgba(232, 184, 92, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+ 
+.password-card::before {
+    top: 16px;
+    left: 16px;
+}
+ 
+.password-card::after {
+    bottom: 16px;
+    right: 16px;
+}
+ 
+/* ---------- Header ---------- */
+.card-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+ 
+.card-header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+ 
+.card-header h1 i {
+    color: var(--accent);
+    font-size: 1.15rem;
+}
+ 
+.card-header p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    max-width: 320px;
+    margin: 0 auto;
+}
+ 
+/* ---------- Password Display ---------- */
+.password-output {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+ 
+#password {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+ 
+#password::placeholder {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: normal;
+}
+ 
+#password:focus {
+    border-color: var(--accent-dim);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+ 
+#copy-btn {
+    flex-shrink: 0;
+    width: 48px;
+    background: var(--bg-panel-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), border-color var(--transition), transform 120ms ease;
+}
+ 
+#copy-btn:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent-dim);
+}
+ 
+#copy-btn:active {
+    transform: scale(0.94);
+}
+ 
+#copy-btn.copied {
+    color: var(--strong);
+    border-color: var(--strong);
+}
+ 
+/* ---------- Slider (Password Length) ---------- */
+.length-section {
+    margin-bottom: 22px;
+}
+ 
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+ 
+.section-title label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+ 
+#length-value {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 10px;
+    border-radius: 20px;
+    min-width: 32px;
+    text-align: center;
+}
+ 
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+}
+ 
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--bg-deep);
+    box-shadow: 0 0 0 1px var(--accent-dim);
+    cursor: pointer;
+    transition: transform 120ms ease;
+}
+ 
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+ 
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--bg-deep);
+    box-shadow: 0 0 0 1px var(--accent-dim);
+    cursor: pointer;
+}
+ 
+input[type="range"]::-moz-range-track {
+    height: 4px;
+    border-radius: 4px;
+    background: var(--border);
+}
+ 
+/* ---------- Options ---------- */
+.options-section,
+.mode-section {
+    margin-bottom: 22px;
+}
+ 
+.options-section h2,
+.mode-section h2 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+ 
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    padding: 8px 4px;
+    cursor: pointer;
+    user-select: none;
+}
+ 
+.option input[type="checkbox"],
+.option input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    background: var(--bg-input);
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    position: relative;
+    transition: background var(--transition), border-color var(--transition);
+}
+ 
+.option input[type="checkbox"] {
+    border-radius: 5px;
+}
+ 
+.option input[type="radio"] {
+    border-radius: 50%;
+}
+ 
+.option input[type="checkbox"]:checked,
+.option input[type="radio"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+ 
+.option input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: solid var(--bg-deep);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+ 
+.option input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: var(--bg-deep);
+}
+ 
+/* ---------- Mode Section ---------- */
+.mode-section .option {
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    transition: border-color var(--transition), background var(--transition);
+}
+ 
+.mode-section .option:has(input:checked) {
+    border-color: var(--accent-dim);
+    background: var(--accent-soft);
+}
+ 
+ 
+/* ===== Part 2 ===== */
+ 
+/* ---------- Strength Meter ---------- */
+.strength-section {
+    margin-bottom: 22px;
+}
+ 
+.strength-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.82rem;
+}
+ 
+.strength-info span:first-child {
+    color: var(--text-secondary);
+}
+ 
+#strength-text {
+    font-weight: 600;
+    color: var(--weak);
+    transition: color var(--transition);
+}
+ 
+.strength-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    overflow: hidden;
+}
+ 
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--weak);
+    border-radius: 6px;
+    transition: width 220ms ease, background-color 220ms ease;
+}
+ 
+/* Optional strength state classes for JS to toggle on #strength-fill / #strength-text */
+.strength-fill.weak,
+#strength-text.weak {
+    background-color: var(--weak);
+    color: var(--weak);
+}
+ 
+.strength-fill.fair,
+#strength-text.fair {
+    background-color: var(--fair);
+    color: var(--fair);
+}
+ 
+.strength-fill.good,
+#strength-text.good {
+    background-color: var(--good);
+    color: var(--good);
+}
+ 
+.strength-fill.strong,
+#strength-text.strong {
+    background-color: var(--strong);
+    color: var(--strong);
+}
+ 
+.strength-fill.very-strong,
+#strength-text.very-strong {
+    background-color: var(--very-strong);
+    color: var(--very-strong);
+}
+ 
+/* ---------- Stats ---------- */
+.stats-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+ 
+.stat-box {
+    background: var(--bg-input);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    text-align: center;
+}
+ 
+.stat-box h3 {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+ 
+.stat-box p {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+ 
+/* ---------- Generate Button ---------- */
+.generate-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dim) 100%);
+    color: #1a1305;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px -10px rgba(232, 184, 92, 0.5);
+    transition: transform 120ms ease, box-shadow var(--transition), filter var(--transition);
+}
+ 
+.generate-btn:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 14px 28px -10px rgba(232, 184, 92, 0.6);
+}
+ 
+.generate-btn:active {
+    transform: translateY(1px) scale(0.99);
+}
+ 
+/* ---------- History ---------- */
+.history-section {
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border-soft);
+}
+ 
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+ 
+.history-header h2 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+}
+ 
+#clear-history {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition);
+}
+ 
+#clear-history:hover {
+    color: var(--weak);
+}
+ 
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+ 
+.history-list:empty::after {
+    content: "Generated passwords will show up here.";
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 14px 0;
+}
+ 
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-input);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+ 
+.history-item span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ 
+.history-item button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-left: 8px;
+    flex-shrink: 0;
+    transition: color var(--transition);
+}
+ 
+.history-item button:hover {
+    color: var(--accent);
+}
+ 
+/* ---------- Privacy Footer ---------- */
+.privacy-footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 12px 14px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-soft-strong);
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+ 
+.privacy-footer i {
+    color: var(--accent);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+ 
+ 
+/* ===== Part 3 ===== */
+ 
+/* ---------- Toast ---------- */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 32px;
+    transform: translate(-50%, 20px);
+    background: var(--bg-panel-2);
+    border: 1px solid var(--accent-dim);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 220ms ease;
+    z-index: 100;
+}
+ 
+.toast::before {
+    content: "\2713  ";
+    color: var(--strong);
+    font-weight: 700;
+}
+ 
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+ 
+/* ---------- Hover Effects ---------- */
+.option:hover input[type="checkbox"]:not(:checked),
+.option:hover input[type="radio"]:not(:checked) {
+    border-color: var(--accent-dim);
+}
+ 
+.stat-box:hover {
+    border-color: var(--accent-dim);
+}
+ 
+/* ---------- Animations ---------- */
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+ 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+.password-card {
+    animation: cardEnter 420ms ease both;
+}
+ 
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+ 
+    50% {
+        box-shadow: 0 0 0 5px var(--accent-soft-strong);
+    }
+}
+ 
+#password:not(:placeholder-shown) {
+    animation: pulseGlow 1.6s ease-in-out 1;
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+ 
+    .password-card,
+    #password,
+    .generate-btn,
+    .toast,
+    .strength-fill {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+ 
+/* ---------- Scrollbar ---------- */
+.history-list::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+.history-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+.history-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 6px;
+}
+ 
+.history-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-dim);
+}
+ 
+/* ---------- Media Queries ---------- */
+@media (max-width: 480px) {
+    .container {
+        padding: 24px 14px;
+    }
+ 
+    .password-card {
+        padding: 28px 20px 22px;
+        border-radius: 16px;
+    }
+ 
+    .card-header h1 {
+        font-size: 1.15rem;
+    }
+ 
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+ 
+    #password {
+        font-size: 0.92rem;
+    }
+}
+ 
+@media (min-width: 481px) and (max-width: 640px) {
+    .password-card {
+        max-width: 420px;
+    }
+}
