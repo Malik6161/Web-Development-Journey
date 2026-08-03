@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Password Generator | Frontend Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+
+        <!-- Password Generator Card -->
+
+        <section class="password-card">
+            <header class="card-header">
+
+                <h1>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Secure Password Generator
+                </h1>
+
+                <p>
+                    Create strong, secure, and completely random passwords directly
+                    inside your browser.
+                </p>
+
+            </header>
+
+            <section class="password-output">
+
+                <input
+                    type="text"
+                    id="password"
+                    placeholder="Your password will appear here..."
+                    readonly>
+
+                <button
+                    id="copy-btn"
+                    aria-label="Copy Password">
+
+                    <i class="fa-regular fa-copy"></i>
+
+                </button>
+
+            </section>
+
+            <section class="strength-section">
+
+                <div class="strength-info">
+
+                    <span>Password Strength</span>
+
+                    <span id="strength-text">
+                        Very Weak
+                    </span>
+
+                </div>
+
+                <div class="strength-bar">
+
+                    <div
+                        class="strength-fill"
+                        id="strength-fill">
+                    </div>
+
+                </div>
+
+            </section>
+            <section class="length-section">
+
+                <div class="section-title">
+
+                    <label for="length">
+                        Password Length
+                    </label>
+
+                    <span id="length-value">
+                        16
+                    </span>
+
+                </div>
+
+                <input
+                    type="range"
+                    id="length"
+                    min="6"
+                    max="64"
+                    value="16">
+
+            </section>
+            <section class="options-section">
+
+                <h2>Character Options</h2>
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="uppercase"
+                        checked>
+
+                    <span>Uppercase Letters (A-Z)</span>
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="lowercase"
+                        checked>
+
+                    <span>Lowercase Letters (a-z)</span>
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="numbers"
+                        checked>
+
+                    <span>Numbers (0-9)</span>
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="symbols"
+                        checked>
+
+                    <span>Symbols (!@#$%^&*)</span>
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="checkbox"
+                        id="exclude-ambiguous">
+
+                    <span>Exclude Ambiguous Characters</span>
+
+                </label>
+
+            </section>
+
+            <section class="mode-section">
+
+                <h2>Generation Mode</h2>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="mode"
+                        value="password"
+                        checked>
+
+                    <span>Random Password</span>
+
+                </label>
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="mode"
+                        value="passphrase">
+
+                    <span>Passphrase (Diceware Style)</span>
+
+                </label>
+
+            </section>
+            <section class="stats-section">
+
+                <div class="stat-box">
+
+                    <h3>Entropy</h3>
+
+                    <p id="entropy">
+                        0 Bits
+                    </p>
+
+                </div>
+
+                <div class="stat-box">
+
+                    <h3>Estimated Crack Time</h3>
+
+                    <p id="crack-time">
+                        —
+                    </p>
+
+                </div>
+
+            </section>
+
+            <button
+                class="generate-btn"
+                id="generate-btn">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                Generate Password
+
+            </button>
+
+            <section class="history-section">
+
+                <div class="history-header">
+
+                    <h2>
+                        Recent Passwords
+                    </h2>
+
+                    <button id="clear-history">
+                        Clear
+                    </button>
+
+                </div>
+
+                <div
+                    class="history-list"
+                    id="history-list">
+
+                </div>
+
+            </section>
+
+            
+            <footer class="privacy-footer">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <span>
+                    Privacy First — Passwords are generated locally in your browser.
+                    Nothing is stored or sent to any server.
+                </span>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+    <div
+        class="toast"
+        id="toast">
+
+        Password Copied Successfully
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

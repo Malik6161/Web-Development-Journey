@@ -1,12 +1,4 @@
 
-/* ==========================================================
-   Secure Password Generator — style.css
-   Theme: "Vault" — deep ink panel, brass accent, riveted card
-   ========================================================== */
- 
-/* ===== Part 1 ===== */
- 
-/* ---------- Global Styles ---------- */
 *,
 *::before,
 *::after {
@@ -31,7 +23,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
  
-/* ---------- Variables ---------- */
 :root {
     /* Core palette */
     --bg-deep: #0b0f17;
