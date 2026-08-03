@@ -1,0 +1,153 @@
+/* ==========================================
+   Google Font
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   Reset
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   Body
+========================================== */
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #eef3f9;
+    color: #333;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+header {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+header p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+/* ==========================================
+   Main Container
+========================================== */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+/* ==========================================
+   Cards
+========================================== */
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    border-left: 6px solid #2563eb;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .15);
+}
+
+/* ==========================================
+   Headings
+========================================== */
+
+.card h2 {
+    color: #2563eb;
+    margin-bottom: 18px;
+}
+
+/* ==========================================
+   Lists
+========================================== */
+
+ul,
+ol {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* ==========================================
+   Paragraphs
+========================================== */
+
+.card p {
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   Footer
+========================================== */
+
+footer {
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* ==========================================
+   Responsive Design
+========================================== */
+
+@media (max-width:768px) {
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
+
+@media (max-width:480px) {
+
+    header {
+        padding: 45px 20px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .card h2 {
+        font-size: 1.3rem;
+    }
+}
