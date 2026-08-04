@@ -1416,6 +1416,7 @@ body.snowy .rain {
         grid-template-columns: 1fr;
     }
 
+    /* temperature */
     .temperature {
         font-size: 62px;
     }
