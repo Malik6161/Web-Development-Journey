@@ -1,0 +1,243 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuizMaster | Interactive Quiz App</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="quiz-app">
+
+        <!-- Start Screen -->
+        <section class="screen start-screen" id="startScreen">
+
+            <div class="app-icon">
+                ?
+            </div>
+
+            <h1>QuizMaster</h1>
+
+            <p class="subtitle">
+                Test your knowledge, challenge yourself,
+                and see how high you can score.
+            </p>
+
+            <div class="quiz-info">
+
+                <div class="info-card">
+                    <span class="info-icon">📝</span>
+                    <div>
+                        <strong>10</strong>
+                        <small>Questions</small>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <span class="info-icon">⏱️</span>
+                    <div>
+                        <strong>15s</strong>
+                        <small>Per Question</small>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <span class="info-icon">🏆</span>
+                    <div>
+                        <strong>100%</strong>
+                        <small>Maximum Score</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="category-section">
+
+                <h2>Choose a Category</h2>
+
+                <div class="category-options">
+
+                    <button class="category-btn active" data-category="general">
+                        <span>🌐</span>
+                        General
+                    </button>
+
+                    <button class="category-btn" data-category="science">
+                        <span>🔬</span>
+                        Science
+                    </button>
+
+                    <button class="category-btn" data-category="technology">
+                        <span>💻</span>
+                        Technology
+                    </button>
+
+                    <button class="category-btn" data-category="history">
+                        <span>📜</span>
+                        History
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button class="start-btn" id="startBtn">
+                Start Quiz
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- Quiz Screen -->
+        <section class="screen quiz-screen hidden" id="quizScreen">
+
+            <header class="quiz-header">
+
+                <div class="quiz-progress-info">
+                    <span>Question</span>
+                    <strong>
+                        <span id="currentQuestion">1</span>
+                        /
+                        <span id="totalQuestions">10</span>
+                    </strong>
+                </div>
+
+                <div class="timer">
+                    <span>⏱️</span>
+                    <strong id="timer">15</strong>
+                </div>
+
+            </header>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+
+            <div class="question-container">
+
+                <span class="question-category" id="questionCategory">
+                    General Knowledge
+
+                </span>
+
+                <h2 id="question">
+                    Loading question...
+                </h2>
+
+            </div>
+
+
+            <div class="answers" id="answers">
+
+                <button class="answer-btn">
+                    <span class="answer-number">A</span>
+                    <span class="answer-text">Answer option</span>
+                </button>
+
+                <button class="answer-btn">
+                    <span class="answer-number">B</span>
+                    <span class="answer-text">Answer option</span>
+                </button>
+
+                <button class="answer-btn">
+                    <span class="answer-number">C</span>
+                    <span class="answer-text">Answer option</span>
+                </button>
+
+                <button class="answer-btn">
+                    <span class="answer-number">D</span>
+                    <span class="answer-text">Answer option</span>
+                </button>
+
+            </div>
+
+
+            <div class="quiz-footer">
+
+                <p class="feedback" id="feedback"></p>
+
+                <button class="next-btn" id="nextBtn">
+                    Next Question
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Result of quiz Screen -->
+        <section class="screen result-screen hidden" id="resultScreen">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <span class="result-label">Quiz Completed!</span>
+
+            <h1>Great Job!</h1>
+
+            <p class="result-message" id="resultMessage">
+                You completed the quiz.
+            </p>
+
+
+            <div class="score-card">
+
+                <div class="score-circle">
+                    <span id="scorePercentage">0%</span>
+                </div>
+
+                <div class="score-details">
+
+                    <div>
+                        <span>Correct Answers</span>
+                        <strong id="correctAnswers">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Wrong Answers</span>
+                        <strong id="wrongAnswers">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Total Questions</span>
+                        <strong id="resultTotalQuestions">10</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-actions">
+
+                <button class="restart-btn" id="restartBtn">
+                    ↻ Play Again
+                </button>
+
+                <button class="home-btn" id="homeBtn">
+                    ← Back to Home
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
