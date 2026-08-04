@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="A premium weather dashboard with live weather, forecasts, air quality, weather insights and smart recommendations.">
+
+    <title>Atmos - Premium Weather Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Weather Background Effects -->
+    <div class="weather-effects">
+        <div class="sun"></div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="rain"></div>
+        <div class="stars"></div>
+    </div>
+
+    <!-- Main Application -->
+    <main class="weather-app">
+
+        <!-- Header -->
+        <header class="app-header">
+
+            <div class="brand">
+                <div class="brand-icon">☁</div>
+
+                <div>
+                    <h1>Atmos</h1>
+                    <p>Weather Intelligence</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+
+                <button class="icon-btn" id="locationBtn" title="Use my location">
+                    📍
+                </button>
+
+                <button class="icon-btn" id="themeBtn" title="Change theme">
+                    ☾
+                </button>
+
+                <button class="unit-toggle" id="unitToggle">
+                    <span class="unit-c active">°C</span>
+                    <span class="unit-f">°F</span>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Search Section -->
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Search for a city..."
+                    autocomplete="off"
+                >
+
+                <button id="searchBtn">
+                    Search
+                </button>
+
+            </div>
+
+            <!-- Search Suggestions -->
+            <div class="search-suggestions" id="searchSuggestions"></div>
+
+            <!-- Recent Searches -->
+            <div class="recent-searches" id="recentSearches"></div>
+
+        </section>
+
+
+        <!-- Location Information -->
+        <section class="location-info">
+
+            <div>
+                <h2 id="cityName">Faisalabad</h2>
+                <p id="countryName">Pakistan</p>
+            </div>
+
+            <div class="local-time">
+                <span id="localDate">Tuesday, August 4</span>
+                <strong id="localTime">--:--</strong>
+            </div>
+
+        </section>
+
+
+        <!-- Main Weather Card -->
+        <section class="current-weather">
+
+            <div class="weather-main">
+
+                <div class="weather-condition">
+                    <div class="weather-icon" id="weatherIcon">
+                        ☀️
+                    </div>
+
+                    <div>
+                        <h3 id="weatherCondition">Clear Sky</h3>
+                        <p id="weatherDescription">
+                            Perfect weather conditions
+                        </p>
+                    </div>
+                </div>
+
+                <div class="temperature">
+                    <span id="temperature">--</span>
+                    <sup>°</sup>
+                    <small id="temperatureUnit">C</small>
+                </div>
+
+                <p class="feels-like">
+                    Feels like <strong id="feelsLike">--°</strong>
+                </p>
+
+            </div>
+
+
+            <!-- Weather Statistics -->
+            <div class="weather-stats">
+
+                <div class="stat-card">
+                    <span class="stat-icon">💧</span>
+                    <div>
+                        <span>Humidity</span>
+                        <strong id="humidity">--%</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">💨</span>
+                    <div>
+                        <span>Wind</span>
+                        <strong id="windSpeed">-- km/h</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">👁️</span>
+                    <div>
+                        <span>Visibility</span>
+                        <strong id="visibility">-- km</strong>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">◉</span>
+                    <div>
+                        <span>Pressure</span>
+                        <strong id="pressure">-- hPa</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Smart Weather Intelligence -->
+        <section class="intelligence-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">SMART INSIGHTS</span>
+                    <h2>Weather Intelligence</h2>
+                </div>
+            </div>
+
+
+            <div class="intelligence-grid">
+
+                <!-- Outdoor Score -->
+                <article class="insight-card outdoor-score">
+
+                    <div class="insight-header">
+                        <span>Outdoor Score</span>
+                        <span>🌤️</span>
+                    </div>
+
+                    <div class="score">
+                        <strong id="outdoorScore">--</strong>
+                        <span>/100</span>
+                    </div>
+
+                    <p id="outdoorMessage">
+                        Calculating outdoor conditions...
+                    </p>
+
+                    <div class="progress-bar">
+                        <div id="outdoorProgress"></div>
+                    </div>
+
+                </article>
+
+
+                <!-- Comfort Index -->
+                <article class="insight-card">
+
+                    <div class="insight-header">
+                        <span>Comfort Index</span>
+                        <span>✨</span>
+                    </div>
+
+                    <strong class="large-value" id="comfortIndex">
+                        --
+                    </strong>
+
+                    <p id="comfortMessage">
+                        Analyzing temperature and humidity...
+                    </p>
+
+                </article>
+
+
+                <!-- UV Index -->
+                <article class="insight-card">
+
+                    <div class="insight-header">
+                        <span>UV Index</span>
+                        <span>☀️</span>
+                    </div>
+
+                    <strong class="large-value" id="uvIndex">
+                        --
+                    </strong>
+
+                    <p id="uvMessage">
+                        UV information loading...
+                    </p>
+
+                </article>
+
+
+                <!-- Air Quality -->
+                <article class="insight-card">
+
+                    <div class="insight-header">
+                        <span>Air Quality</span>
+                        <span>🌿</span>
+                    </div>
+
+                    <strong class="large-value" id="airQuality">
+                        --
+                    </strong>
+
+                    <p id="airQualityMessage">
+                        Air quality information loading...
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Weather Recommendation -->
+        <section class="recommendation-section">
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    🧥
+                </div>
+
+                <div class="recommendation-content">
+
+                    <span>PERSONALIZED RECOMMENDATION</span>
+
+                    <h2 id="recommendationTitle">
+                        What should you wear?
+                    </h2>
+
+                    <p id="recommendationText">
+                        We'll analyze the current conditions and suggest
+                        what would be best to wear outside.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    ☂️
+                </div>
+
+                <div class="recommendation-content">
+
+                    <span>RAIN ADVISOR</span>
+
+                    <h2 id="rainRecommendation">
+                        Do you need an umbrella?
+                    </h2>
+
+                    <p id="rainMessage">
+                        Checking precipitation probability...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Hourly Forecast -->
+        <section class="forecast-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">NEXT 24 HOURS</span>
+                    <h2>Hourly Forecast</h2>
+                </div>
+
+                <button class="view-btn" id="hourlyViewBtn">
+                    View Details
+                </button>
+
+            </div>
+
+
+            <div class="hourly-forecast" id="hourlyForecast">
+
+                <!-- JavaScript will generate hourly forecast cards -->
+
+            </div>
+
+        </section>
+
+
+        <!-- Temperature Chart -->
+        <section class="chart-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">TEMPERATURE TREND</span>
+                    <h2>Today's Temperature</h2>
+                </div>
+
+            </div>
+
+            <div class="temperature-chart">
+
+                <canvas id="temperatureChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- Seven Day Forecast -->
+        <section class="forecast-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">7 DAY FORECAST</span>
+                    <h2>Weekly Forecast</h2>
+                </div>
+
+            </div>
+
+
+            <div class="weekly-forecast" id="weeklyForecast">
+
+                <!-- JavaScript will generate weekly forecast -->
+
+            </div>
+
+        </section>
+
+
+        <!-- Sun Information -->
+        <section class="sun-section">
+
+            <div class="sun-card">
+
+                <div class="sun-info">
+
+                    <span class="section-label">SUNRISE</span>
+
+                    <h2 id="sunrise">--:--</h2>
+
+                    <p>Morning</p>
+
+                </div>
+
+                <div class="sun-animation">
+                    ☀️
+                </div>
+
+            </div>
+
+
+            <div class="sun-card">
+
+                <div class="sun-info">
+
+                    <span class="section-label">SUNSET</span>
+
+                    <h2 id="sunset">--:--</h2>
+
+                    <p>Evening</p>
+
+                </div>
+
+                <div class="sun-animation">
+                    🌅
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Favorite Locations -->
+        <section class="locations-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">YOUR LOCATIONS</span>
+                    <h2>Favorite Cities</h2>
+                </div>
+
+                <button class="add-location-btn" id="addLocationBtn">
+                    + Add City
+                </button>
+
+            </div>
+
+
+            <div class="favorite-cities" id="favoriteCities">
+
+                <!-- JavaScript will generate saved cities -->
+
+            </div>
+
+        </section>
+
+
+        <!-- Weather Alert -->
+        <section class="alert-section" id="weatherAlert">
+
+            <div class="alert-icon">
+                ⚠️
+            </div>
+
+            <div>
+                <span>WEATHER ALERT</span>
+                <h3 id="alertTitle">No active alerts</h3>
+                <p id="alertMessage">
+                    There are currently no severe weather alerts.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Loading Screen -->
+        <div class="loading-screen" id="loadingScreen">
+
+            <div class="loader"></div>
+
+            <h2>Reading the atmosphere...</h2>
+
+            <p>Fetching the latest weather information</p>
+
+        </div>
+
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage">
+
+            <div class="error-icon">
+                ⚠️
+            </div>
+
+            <h2>Location not found</h2>
+
+            <p id="errorText">
+                We couldn't find weather information for this location.
+            </p>
+
+            <button id="retryBtn">
+                Try Again
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="app-footer">
+
+        <p>
+            Atmos Weather Intelligence
+        </p>
+
+        <span>
+            Live weather data • Built with HTML, CSS & JavaScript
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
